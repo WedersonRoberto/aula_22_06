@@ -1,17 +1,18 @@
 print("=== Carrinho de Compras ===\n")
 total = 0
+preco = 0
 carrinho ={}
 while True :
-    item = input("Item (ou 'sair' para finalizar) : ") .strip()
+    item = input("Insira um item (ou 'sair' para finalizar) : ") .strip()
     if item.lower() == 'sair':
         break
     preco = float(input(f"Preço do {item} : R$ "))
-    qtd = int(input("Quantidade : "))
+
+    qtd = int(input(f"Quantidade : "))
 
     subtotal = preco * qtd
     total += subtotal
-    # FORMATO: carrinho[item] = {"qtd": qtd, "subtotal": subtotal}
-
+   
     carrinho[item] = {
         "qtd": qtd, 
         "subtotal": subtotal
@@ -22,7 +23,7 @@ while True :
 print("\n=== Carrinho de Compra === ")
 for item, dados in carrinho.items() :    
     print(f"{dados["qtd"]} x {item} - R$ {dados["subtotal"]:.2f}")
-print(f"Total à pagar : R$ {total:.2f}")
+    print(f"Total à pagar : R$ {total:.2f}")
 
 if total > 100:
     desconto = total * 0.10
